@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Todo List</title>
+</head>
+<body>
+    <div class="sidebar">
+        <h1>Todo List</h1>
+        <div class="side-btn">
+            <button class="add-task" aria-label="Create a Task"><span>
+                <svg class="plus" width="13" height="13" viewBox="0 0 13 13" class="AppHeaderNewTaskButton__button__text__icon"><g stroke="currentColor" stroke-width="2"><line x1="6.5" y1="0" x2="6.5" y2="13"></line><line x1="0" y1="6.5" x2="13" y2="6.5"></line></g></svg>
+                Create a Task
+            </span></button>
+        </div>
+
+        <nav class="sidenav">
+            <ul class="side-list">
+                <li>
+                    <div class="main-project">
+                        <div class="projects"> <h3>Projects</h3>  
+                            <button id="dropdown" class="util-btn"><svg width="24" height="24" viewBox="0 0 24 24"><path id="util" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M7 14l5.4-5.4 5.4 5.4"></path></svg></button>
+                        </div>
+                        <div class="edit">
+                            <button class="util-btn">
+                                <svg width="24" height="24" viewBox="0 0 24 24"><defs><path id="app-sidebar-add_icon_svg__svg-4089004933-a" d="M11.6 5.2a.8.8 0 01.794.7l.006.1-.001 4.799 4.801.001a.8.8 0 01.1 1.594l-.1.006-4.801-.001.001 4.801a.8.8 0 01-1.594.1l-.006-.1-.001-4.801L6 12.4a.8.8 0 01-.1-1.594L6 10.8l4.799-.001L10.8 6a.8.8 0 01.8-.8z"></path></defs><g fill="none" fill-rule="evenodd"><mask id="app-sidebar-add_icon_svg__svg-4089004933-b" fill="#fff"><use xlink:href="#app-sidebar-add_icon_svg__svg-4089004933-a"></use></mask><use fill="currentColor" fill-rule="nonzero" xlink:href="#app-sidebar-add_icon_svg__svg-4089004933-a"></use><g fill="currentColor" mask="url(#app-sidebar-add_icon_svg__svg-4089004933-b)"><path d="M0 0h24v24H0z"></path></g></g></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="mini-projects">
+                        <ul class="projects-list">
+                            <li>Home</li>
+                            <li>Work</li>
+                            <li>Coding</li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="container">
+        <section class="cards">
+            <article class="project-card">
+                <div class="tasks-container">
+                    <div class="title">
+                        <h2>Home</h2>
+                    </div>
+                    <article>
+                        <ul class="tasklist">
+                            <li class="task-item">eat</li>
+                            <li class="task-item">code</li>
+                        </ul>
+                    </article>
+                </div>
+            </article>
+            <article class="task-card">
+                <div class="task-content">
+                    <h2>eat</h2>
+                    <h4>Priority - <button class="priority-btn"><span class="priority">High</span> x</button></h4>
+                    <p>djasdn afjkkjasmafnjna</p>
+                    <p>
+                        Created at
+                    </p>
+                    <div>
+                        August 16 2020
+                    </div>
+                </div >
+
+                <footer class="btns">
+                    <div class="task-btns">
+                        <button class="delete">
+                            <span class="TaskEditPaneDetailsFooter__button"><svg width="24" height="24" viewBox="0 0 24 24"><defs><filter id="delete-task_icon_svg__svg-404750943-a" width="113.1%" height="186.8%" x="-6.6%" y="-43.4%" filterUnits="objectBoundingBox"><feOffset in="SourceAlpha" result="shadowOffsetOuter1"></feOffset><feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="7.5"></feGaussianBlur><feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12 0"></feColorMatrix><feMerge><feMergeNode in="shadowMatrixOuter1"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter><path id="delete-task_icon_svg__svg-404750943-b" d="M7.476 6.357l.09.077L11.8 10.67l4.234-4.235a.802.802 0 011.209 1.042l-.077.09L12.93 11.8l4.235 4.234a.802.802 0 01-1.042 1.209l-.09-.077L11.8 12.93l-4.234 4.235a.802.802 0 01-1.209-1.042l.077-.09L10.67 11.8 6.434 7.566a.802.802 0 011.042-1.209z"></path></defs><g fill="none" fill-rule="evenodd" filter="url(#delete-task_icon_svg__svg-404750943-a)" transform="translate(-52 -22)"><g transform="translate(52 22)"><mask id="delete-task_icon_svg__svg-404750943-c" fill="#fff"><use xlink:href="#delete-task_icon_svg__svg-404750943-b"></use></mask><use fill="currentColor" fill-rule="nonzero" xlink:href="#delete-task_icon_svg__svg-404750943-b"></use><g fill="currentColor" mask="url(#delete-task_icon_svg__svg-404750943-c)"><path d="M0 0h24v24H0z"></path></g></g></g></svg><span class="TaskEditPaneDetailsFooter__button__text">Delete task</span></span>
+                        </button>
+                        <button class="done">
+                            <span class="TaskEditPaneDetailsFooter__button TaskEditPaneDetailsFooter__button--highlight"><svg width="24" height="24" viewBox="0 -1 24 23"><defs><filter id="mark-as-done_icon_svg__svg-253777825-a" width="113.1%" height="186.8%" x="-6.6%" y="-43.4%" filterUnits="objectBoundingBox"><feOffset in="SourceAlpha" result="shadowOffsetOuter1"></feOffset><feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="7.5"></feGaussianBlur><feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12 0"></feColorMatrix><feMerge><feMergeNode in="shadowMatrixOuter1"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter><path id="mark-as-done_icon_svg__svg-253777825-b" d="M19.234 6.434a.802.802 0 011.209 1.042l-.077.09-8.8 8.8a.8.8 0 01-1.042.077l-.09-.077-4-4a.802.802 0 011.042-1.209l.09.077L11 14.67l8.234-8.235z"></path></defs><g fill="none" fill-rule="evenodd" filter="url(#mark-as-done_icon_svg__svg-253777825-a)" transform="translate(-266 -22)"><g transform="translate(266 22)"><mask id="mark-as-done_icon_svg__svg-253777825-c" fill="#fff"><use xlink:href="#mark-as-done_icon_svg__svg-253777825-b"></use></mask><use fill="currentColor" fill-rule="nonzero" xlink:href="#mark-as-done_icon_svg__svg-253777825-b"></use><g fill="currentColor" mask="url(#mark-as-done_icon_svg__svg-253777825-c)"><path d="M1 0h24v24H1z"></path></g></g></g></svg><span class="TaskEditPaneDetailsFooter__button__text">Mark as done</span></span>
+                        </button>
+                    </div>
+                </footer>
+            </article>
+        </section>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

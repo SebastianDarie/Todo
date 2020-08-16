@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=McLaren&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'McLaren', cursive;
+    background-color: #7D82B8;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    width: 280px;
+    height: 100vh;
+    padding: 28px;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
+h3 {
+    margin-right: 10px;
+}
+
+.add-task {
+    background-color: #0080ff;
+    color: #fff;
+    border: none;
+    border-radius: 10rem;
+    height: 40px;
+    width: 225px;
+    margin: 25px 0;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.add-task:hover {
+    opacity: 0.75;
+}
+
+svg {
+    display: inline-block;
+    vertical-align: -1px;
+    margin-right: 1px;
+    margin-top: 3px;
+}
+
+#util {
+    display: inline-block;
+    vertical-align: -1px;
+    margin-right: 1px;
+    margin-top: 3px;
+    width: 24px;
+    height: 24px;
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
+
+ul {
+    list-style-type: none;
+    margin: 10px;
+}
+
+.main-project {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.projects {
+    display: flex;
+    flex-direction: row;
+}
+
+.util-btn {
+    background: none;
+    border: none;
+    border-radius: 50%;
+    color: #9197a3;
+    transition: 0.4s ease-in-out;
+}
+
+.util-btn:hover {
+    box-shadow: 0 0 0 2px #d8d8d8;
+    background-color: #d8d8d8;  
+}
+
+.util-btn:focus {
+    box-shadow: 0 0 0 2px #d8d8d8;
+    background-color: #d8d8d8; 
+    color: #0080ff;
+}
+
