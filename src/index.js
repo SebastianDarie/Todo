@@ -1,43 +1,39 @@
-const dropdown = document.querySelector('#dropdown')
-const projects = document.querySelector('.projects-list')
-const modal1 = document.querySelector('#my-modal1')
-const modal2 = document.querySelector('#my-modal2')
-const modalBtn = document.querySelector('#modal-btn')
-const addListBtn = document.querySelector('#add-list')
-const closeBtn = document.querySelectorAll('.close')
+import toggleEffects, { modal1, modal2 } from './effects'
+import { addProject, addTask, deleteTask, getLocalTasks } from './functions'
 
-dropdown.classList.toggle('rotate')
-addListBtn.classList.toggle('hidden')
-projects.style.height = '0px'
+getLocalTasks()
 
-dropdown.addEventListener('click', function() {
-    dropdown.classList.toggle('rotate')
-    addListBtn.classList.toggle('hidden')
+toggleEffects()
 
-    projects.style.height === '0px' ? projects.style.height = '130px' :  projects.style.height = '0px'
+const projectForm = document.querySelector('#project-form')
+const taskForm = document.querySelector('#task-form')
+const del = document.querySelector('.btn-delete')
+
+projectForm.addEventListener('submit', function(e) {
+    e.preventDefault()
+    const title = this.elements['title'].value
+
+    addProject(title)
+
+    modal1.style.display = 'none'
+    projectForm.reset()
 })
 
-addListBtn.addEventListener('click', openProjectModal)
-modalBtn.addEventListener('click', openTaskModal)
-window.addEventListener('click', outsideClick)
-closeBtn.forEach(btn => btn.addEventListener('click', closeModal))
+taskForm.addEventListener('submit', function(e) {
+    e.preventDefault()
+    const title = this.elements['title'].value
+    const description = this.elements['description'].value
+    const date = this.elements['duedate'].value
+    const priority = this.elements['priority'].value
 
-function openProjectModal() {
-  modal1.style.display = 'block'
-}
 
-function openTaskModal() {
-    modal2.style.display = 'block'
-}
+    addTask(title, description, date, priority)
 
-function closeModal() {
-  modal1.style.display = 'none'
-  modal2.style.display = 'none'
-}
-
-function outsideClick(e) {
-  if (e.target === modal1 || e.target === modal2) {
-    modal1.style.display = 'none'
     modal2.style.display = 'none'
-  }
-}
+    taskForm.reset()
+})
+
+del.addEventListener('click', function(e){
+    let task = e.currentTarget.parentNode.parentNode.parentNode.children[0]
+    deleteTask(task)
+})
