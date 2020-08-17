@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=McLaren&display=swap');
 
+:root {
+    --modal-duration: 1s;
+    --modal-color: linear-gradient(to right, #40C9A2, #2F9C95);;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -25,8 +30,22 @@ h1 {
     justify-content: center;
 }
 
+h2 {
+    font-size: 20px;
+}
+
 h3 {
     margin-right: 10px;
+}
+
+h4 {
+    display: flex;
+    margin-top: 10px;
+}
+
+h5 {
+    margin-right: 10px;
+    margin-top: 5px;
 }
 
 .add-task {
@@ -38,6 +57,7 @@ h3 {
     width: 225px;
     margin: 25px 0;
     font-size: 15px;
+    outline: none;
     cursor: pointer;
     transition: 0.2s ease-in-out;
 }
@@ -60,6 +80,10 @@ svg {
     margin-top: 3px;
     width: 24px;
     height: 24px;
+}
+
+.hidden {
+    display: none;
 }
 
 .rotate {
@@ -101,3 +125,228 @@ ul {
     color: #0080ff;
 }
 
+.projects-list {
+    position: relative;
+    overflow: hidden;
+    transition: height 0.4s ease-in-out;
+}
+
+.project-item {
+    display: flex;
+    align-items: center;
+    height: 44px;
+    width: 100%;
+    overflow: hidden;
+    transition: 0.2s ease-in-out;
+}
+
+.project-item:hover {
+    background-color: #d8d8d8;
+    color: #0080ff;
+    cursor: pointer;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 150px;
+    left: 400px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    background-color: #fff;
+    border-radius: 10px;
+    min-width: 335px;
+    max-width: 450px;
+    min-height: 300px;
+    padding: 10px;
+    margin: 20px;
+}
+
+.task-item:hover {
+    color: #0080ff;
+    cursor: pointer;
+}
+
+.priority-btn {
+    display: flex;
+    align-items: center;
+    height: 24px;
+    border: 1px solid;
+    border-radius: 12px;
+    font-size: 12px;
+    width: 68px;
+    margin-left: 10px;
+    background-color: #ff2800;
+    border-color: #ff2800;
+    color: #000;
+    cursor: pointer;
+}
+
+.priority {
+    padding: 5px;
+    margin-right: 10px;
+}
+
+.description {
+    margin-top: 30px;
+}
+
+.date-text {
+    margin-top: 40px;
+}
+
+.btns {
+    display: flex;
+    justify-content: space-evenly;
+    min-width: 335px;
+    margin-top: 20px;
+}
+
+#btn-task {
+    box-shadow: 0 0 0 2px #d8d8d8;
+    border: none;
+    border-radius: 0;
+    background-color: #fff;
+    margin: 10px 0;
+    position: relative;
+    width: 180px;
+}
+
+#btn-task:hover {
+    cursor: pointer;
+    background-color: #e7e7e7;
+}
+
+.btn-done {
+    color: #0080ff;
+    bottom: 2px;
+}
+
+.btn-done:hover {
+    color: #009A4E;
+}
+
+.btn-delete:hover {
+    color: #ff2800;
+}
+
+.delete-panel {
+   float: left;
+   margin: 10px;
+   margin-right: -50px;
+}
+
+.del {
+    margin-top: 5px;
+    margin-right: 15px;
+}
+
+.del-mark {
+    margin-top: 7px;
+    margin-right: 15px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+  
+.modal-content {
+    margin: 10% auto;
+    width: 40%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+    animation-name: modalopen;
+    animation-duration: var(--modal-duration);
+}
+  
+.modal-header h2 {
+    margin: 0;
+}
+  
+.modal-header {
+    background: var(--modal-color);
+    padding: 15px;
+    color: #fff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+  
+.modal-body {
+    padding: 10px 20px;
+    background: #fff;
+}  
+  
+.close {
+    color: #ccc;
+    float: right;
+    font-size: 30px;
+    color: #fff;
+}
+  
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+  
+@keyframes modalopen {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-size: 20px;
+}
+
+.field {
+    display: flex;
+    margin: 10px;
+}
+
+.submit {
+    background: #428bca;
+    padding: 1em 2em;
+    color: #fff;
+    border: 0;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.priorities {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 15px;
+}
+
+#radio {
+    margin-top: 10px;
+}
+
+#radio-label {
+    margin-top: 2px;
+}
