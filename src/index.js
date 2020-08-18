@@ -1,5 +1,5 @@
 import toggleEffects, { modal1, modal2 } from './effects'
-import { addProject, addTask,  getLocalTasks, deleteTask, changePriority ,render, renderTask, markDone } from './functions'
+import { addProject, addTask,  getLocalTasks, render, renderTask} from './functions'
 
 getLocalTasks()
 
@@ -8,9 +8,6 @@ toggleEffects()
 const projectForm = document.querySelector('#project-form')
 const taskForm = document.querySelector('#task-form')
 const task = document.querySelectorAll('.task-item')
-const del = document.querySelector('.btn-delete')
-const mark = document.querySelector('.btn-done')
-const colorBtn = document.querySelector('.priority-btn')
 
 projectForm.addEventListener('submit', function(e) {
     e.preventDefault()
@@ -43,28 +40,5 @@ task.forEach(todo => {
         const idx = todo.dataset.key
         
         renderTask(idx)
-
-        // render(todo)
-
-        //location.reload()
     })
 })
-
-mark.addEventListener('click', function(e) {
-    let task = e.currentTarget.parentNode.parentNode.parentNode.children[0].children[0]
-    markDone(task)
-})
-
-// del.addEventListener('click', function(e){
-//     let task = e.currentTarget.parentNode.parentNode.parentNode.children[0].children[0]
-//     deleteTask(task)
-//     location.reload()
-//     render()
-// })
-
-// colorBtn.addEventListener('click', function(e) {
-//     let task = e.currentTarget.parentNode.parentNode.children[0]
-//     changePriority(task)
-//     location.reload()
-//     render()
-// })
