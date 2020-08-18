@@ -169,9 +169,22 @@ ul {
     margin: 20px;
 }
 
+.task-item {
+    transition: 0.2s ease-in-out;
+}
+
 .task-item:hover {
     color: #0080ff;
     cursor: pointer;
+}
+
+.selected {
+    background-color: #d8d8d8;
+}
+
+.task-done {
+    text-decoration: line-through #ff2800;
+    text-decoration-thickness: 3px;
 }
 
 .priority-btn {
@@ -189,10 +202,20 @@ ul {
     cursor: pointer;
 }
 
+.low {
+    background-color: #009A4E;
+    border-color: #009A4E;
+}
+
+.medium {
+    background-color: #fc9303;
+    border-color: #fc9303;
+}
+
 .priority {
-    padding: 16px;
+    padding: 10px;
     color: #fff;
-    font-size: 15px;
+    font-size: 12px;
 }
 
 .description {
