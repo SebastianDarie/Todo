@@ -21,7 +21,7 @@ const toggleEffects = () => {
         dropdown.classList.toggle('rotate')
         addListBtn.classList.toggle('hidden')
 
-        projects.style.height === '0px' ? projects.style.height = '130px' :  projects.style.height = '0px'
+        projects.style.height === '0px' ? projects.style.height = '360px' :  projects.style.height = '0px'
     })
 
     addListBtn.addEventListener('click', openProjectModal)

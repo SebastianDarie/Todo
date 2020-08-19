@@ -20,13 +20,20 @@ export function addProject(title) {
 export function addTask(title, description, date, priority) {
     let task = new Task(title, description, date, priority)
 
+    const titleEl = document.querySelector('.project-title')
+    const projectTitle = titleEl.textContent
+
+    const key = projectsArr.findIndex(item => item.title === projectTitle)
+
+    task.project = projectTitle
+
     if(duplicateTask(task)) return
 
     tasksArr.push(task)
 
-    location.reload()
-
     render()
+
+    renderProject(key)
 }
 
 export function deleteTask(idx) {
@@ -50,13 +57,62 @@ export function render () {
 
     saveToLocal()
 
-    projectsArr.forEach(project => {
+    projectsArr.forEach((project, idx) => {
         projectsList.innerHTML += `
-        <li class="project-item">${project.title}</li>
+        <li class="project-item" data-key=${idx}>${project.title}</li>
         `
     })
 
     tasksArr.forEach((task, idx) => {
+        taskList.innerHTML += `
+        <li class="task-item" data-key=${idx}>${task.title}</li>
+        `
+    })
+
+    const project = document.querySelectorAll('.project-item')
+    const task = document.querySelectorAll('.task-item')    
+    
+    project.forEach(prj => {
+        prj.addEventListener('click', function(e) {
+            project.forEach(prj => prj.classList.remove('selected'))
+            prj.classList.toggle('selected')
+    
+            const idx = prj.dataset.key
+    
+            renderProject(idx)
+        })
+    })
+
+    task.forEach(todo => {
+        todo.addEventListener('click', function() {
+            task.forEach(todo => todo.classList.remove('selected'))
+            todo.classList.toggle('selected')
+            
+            const idx = todo.dataset.key
+            
+            renderTask(idx)
+        })
+    })
+    
+
+    renderTask(0)
+}
+
+export function renderProject(idx) {
+    const title = document.querySelector('.project-title')
+
+    title.innerHTML = ''
+
+    title.innerHTML += `<h2 class="project-title" data-key=${idx}>${projectsArr[idx].title}</h2>`
+
+    const project = projectsArr[idx]
+
+    let filteredArr = tasksArr.filter(item => item.project === project.title)
+
+    taskList.innerHTML = ''
+
+    filteredArr.forEach((task, idx) => {
+        idx = tasksArr.indexOf(task)
         taskList.innerHTML += `
         <li class="task-item" data-key=${idx}>${task.title}</li>
         `
@@ -76,7 +132,7 @@ export function render () {
     })
     
 
-    renderTask(0)
+    renderTask(tasksArr.indexOf(filteredArr[0]))
 }
 
 export function renderTask(idx) {
@@ -86,7 +142,7 @@ export function renderTask(idx) {
 
     taskCard.innerHTML += `
         <div class="task-content">
-            <h2 data-key="${tasksArr[idx].id}">${tasksArr[idx].title}</h2>
+            <h2 class="key" data-key="${tasksArr[idx].id}">${tasksArr[idx].title}</h2>
             <h4>Priority - <button class="priority-btn"><span class="priority">${tasksArr[idx].priority.charAt(0).toUpperCase() + tasksArr[idx].priority.slice(1)}</span></button></h4>
             <p class="description" contentEditable="true">${tasksArr[idx].description}</p>
             <p class="date-text">
@@ -109,10 +165,8 @@ export function renderTask(idx) {
         </footer>
     `
 
-    setInterval(function() {
-        localStorage.setItem('description', JSON.stringify(document.querySelector('.description').innerHTML))
-        localStorage.setItem('date', JSON.stringify(document.querySelector('.date').innerHTML))
-    }, 1000)
+    const project = tasksArr[idx].project
+    const projectIdx = projectsArr.findIndex(item => item.title === project)
 
     const mark = document.querySelector('.btn-done')
     const del = document.querySelector('.btn-delete')
@@ -134,6 +188,7 @@ export function renderTask(idx) {
         deleteTask(idx)
         render()
         renderTask(0)
+        renderProject(projectIdx)
     })
     
     colorBtn.addEventListener('click', function(e) {
@@ -188,7 +243,4 @@ export function getLocalTasks() {
         projectsArr = localProject
         render()
     }
-
-    document.querySelector('.description').innerHTML = JSON.parse(localStorage.getItem('description'))
-    document.querySelector('.date').innerHTML = JSON.parse(localStorage.getItem('date'))
 }
