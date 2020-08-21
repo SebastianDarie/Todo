@@ -1,376 +1,376 @@
 @import url('https://fonts.googleapis.com/css2?family=McLaren&display=swap');
 
 :root {
-    --modal-duration: 1s;
-    --modal-color: linear-gradient(to right, #40C9A2, #2F9C95);;
+	--modal-duration: 1s;
+	--modal-color: linear-gradient(to right, #40c9a2, #2f9c95);
 }
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
 body {
-    font-family: 'McLaren', cursive;
-    background-color: #7D82B8;
+	font-family: 'McLaren', cursive;
+	background-color: #7d82b8;
 }
 
 .sidebar {
-    display: flex;
-    flex-direction: column;
-    background-color: #fff;
-    width: 280px;
-    height: 100vh;
-    padding: 28px;
+	display: flex;
+	flex-direction: column;
+	background-color: #fff;
+	width: 280px;
+	height: 100vh;
+	padding: 28px;
 }
 
 h1 {
-    display: flex;
-    justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
 h2 {
-    font-size: 20px;
+	font-size: 20px;
 }
 
 h3 {
-    margin-right: 10px;
+	margin-right: 10px;
 }
 
 h4 {
-    display: flex;
-    margin-top: 10px;
+	display: flex;
+	margin-top: 10px;
 }
 
 h5 {
-    margin-right: 10px;
-    margin-top: 5px;
+	margin-right: 10px;
+	margin-top: 5px;
 }
 
 .add-task {
-    background-color: #0080ff;
-    color: #fff;
-    border: none;
-    border-radius: 10rem;
-    height: 40px;
-    width: 225px;
-    margin: 25px 0;
-    font-size: 15px;
-    outline: none;
-    cursor: pointer;
-    transition: 0.2s ease-in-out;
+	background-color: #0080ff;
+	color: #fff;
+	border: none;
+	border-radius: 10rem;
+	height: 40px;
+	width: 225px;
+	margin: 25px 0;
+	font-size: 15px;
+	outline: none;
+	cursor: pointer;
+	transition: 0.2s ease-in-out;
 }
 
 .add-task:hover {
-    opacity: 0.75;
+	opacity: 0.75;
 }
 
 svg {
-    display: inline-block;
-    vertical-align: -1px;
-    margin-right: 1px;
-    margin-top: 3px;
+	display: inline-block;
+	vertical-align: -1px;
+	margin-right: 1px;
+	margin-top: 3px;
 }
 
 #util {
-    display: inline-block;
-    vertical-align: -1px;
-    margin-right: 1px;
-    margin-top: 3px;
-    width: 24px;
-    height: 24px;
+	display: inline-block;
+	vertical-align: -1px;
+	margin-right: 1px;
+	margin-top: 3px;
+	width: 24px;
+	height: 24px;
 }
 
 .hidden {
-    display: none;
+	display: none;
 }
 
 .rotate {
-    transform: rotate(180deg);
+	transform: rotate(180deg);
 }
 
 ul {
-    list-style-type: none;
-    margin: 10px;
+	list-style-type: none;
+	margin: 10px;
 }
 
 .main-project {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 }
 
 .projects {
-    display: flex;
-    flex-direction: row;
+	display: flex;
+	flex-direction: row;
 }
 
 .util-btn {
-    background: none;
-    border: none;
-    border-radius: 50%;
-    color: #9197a3;
-    transition: 0.4s ease-in-out;
+	background: none;
+	border: none;
+	border-radius: 50%;
+	color: #9197a3;
+	transition: 0.4s ease-in-out;
 }
 
 .util-btn:hover {
-    box-shadow: 0 0 0 2px #d8d8d8;
-    background-color: #d8d8d8;  
+	box-shadow: 0 0 0 2px #d8d8d8;
+	background-color: #d8d8d8;
 }
 
 .util-btn:focus {
-    box-shadow: 0 0 0 2px #d8d8d8;
-    background-color: #d8d8d8; 
-    color: #0080ff;
+	box-shadow: 0 0 0 2px #d8d8d8;
+	background-color: #d8d8d8;
+	color: #0080ff;
 }
 
 .projects-list {
-    position: relative;
-    overflow: hidden;
-    transition: height 0.4s ease-in-out;
+	position: relative;
+	overflow: hidden;
+	transition: height 0.4s ease-in-out;
 }
 
 .project-item {
-    display: flex;
-    align-items: center;
-    height: 44px;
-    width: 100%;
-    overflow: hidden;
-    transition: 0.2s ease-in-out;
+	display: flex;
+	align-items: center;
+	height: 44px;
+	width: 100%;
+	overflow: hidden;
+	transition: 0.2s ease-in-out;
 }
 
 .project-item:hover {
-    background-color: #d8d8d8;
-    color: #0080ff;
-    cursor: pointer;
+	background-color: #d8d8d8;
+	color: #0080ff;
+	cursor: pointer;
 }
 
 .cards {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 150px;
-    left: 400px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 150px;
+	left: 400px;
 }
 
 .card {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    position: relative;
-    background-color: #fff;
-    border-radius: 10px;
-    min-width: 335px;
-    max-width: 450px;
-    min-height: 300px;
-    padding: 10px;
-    margin: 20px;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	position: relative;
+	background-color: #fff;
+	border-radius: 10px;
+	min-width: 335px;
+	max-width: 450px;
+	min-height: 300px;
+	padding: 10px;
+	margin: 20px;
 }
 
 .task-item {
-    transition: 0.2s ease-in-out;
+	transition: 0.2s ease-in-out;
 }
 
 .task-item:hover {
-    color: #0080ff;
-    cursor: pointer;
+	color: #0080ff;
+	cursor: pointer;
 }
 
 .selected {
-    background-color: #d8d8d8;
+	background-color: #d8d8d8;
 }
 
 .task-done {
-    text-decoration: line-through #ff2800;
-    text-decoration-thickness: 3px;
+	text-decoration: line-through #ff2800;
+	text-decoration-thickness: 3px;
 }
 
 .priority-btn {
-    display: flex;
-    align-items: center;
-    height: 24px;
-    border: 1px solid;
-    border-radius: 12px;
-    font-size: 12px;
-    width: 68px;
-    margin-left: 10px;
-    background-color: #ff2800;
-    border-color: #ff2800;
-    color: #000;
-    cursor: pointer;
+	display: flex;
+	align-items: center;
+	height: 24px;
+	border: 1px solid;
+	border-radius: 12px;
+	font-size: 12px;
+	width: 68px;
+	margin-left: 10px;
+	background-color: #ff2800;
+	border-color: #ff2800;
+	color: #000;
+	cursor: pointer;
 }
 
 .low {
-    background-color: #009A4E;
-    border-color: #009A4E;
+	background-color: #009a4e;
+	border-color: #009a4e;
 }
 
 .medium {
-    background-color: #fc9303;
-    border-color: #fc9303;
+	background-color: #fc9303;
+	border-color: #fc9303;
 }
 
 .priority {
-    padding: 10px;
-    color: #fff;
-    font-size: 12px;
+	padding: 10px;
+	color: #fff;
+	font-size: 12px;
 }
 
 .description {
-    margin-top: 30px;
+	margin-top: 30px;
 }
 
 .date-text {
-    margin-top: 40px;
+	margin-top: 40px;
 }
 
 .btns {
-    display: flex;
-    justify-content: space-evenly;
-    min-width: 335px;
-    margin-top: 20px;
+	display: flex;
+	justify-content: space-evenly;
+	min-width: 335px;
+	margin-top: 20px;
 }
 
 #btn-task {
-    box-shadow: 0 0 0 2px #d8d8d8;
-    border: none;
-    border-radius: 0;
-    background-color: #fff;
-    margin: 10px 0;
-    position: relative;
-    width: 180px;
+	box-shadow: 0 0 0 2px #d8d8d8;
+	border: none;
+	border-radius: 0;
+	background-color: #fff;
+	margin: 10px 0;
+	position: relative;
+	width: 180px;
 }
 
 #btn-task:hover {
-    cursor: pointer;
-    background-color: #e7e7e7;
+	cursor: pointer;
+	background-color: #e7e7e7;
 }
 
 .btn-done {
-    color: #0080ff;
-    bottom: 2px;
+	color: #0080ff;
+	bottom: 2px;
 }
 
 .btn-done:hover {
-    color: #009A4E;
+	color: #009a4e;
 }
 
 .btn-delete:hover {
-    color: #ff2800;
+	color: #ff2800;
 }
 
 .delete-panel {
-   float: left;
-   margin: 10px;
-   margin-right: -50px;
+	float: left;
+	margin: 10px;
+	margin-right: -50px;
 }
 
 .del {
-    margin-top: 5px;
-    margin-right: 15px;
+	margin-top: 5px;
+	margin-right: 15px;
 }
 
 .del-mark {
-    margin-top: 7px;
-    margin-right: 15px;
+	margin-top: 7px;
+	margin-right: 15px;
 }
 
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.5);
 }
-  
+
 .modal-content {
-    margin: 10% auto;
-    width: 40%;
-    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
-    animation-name: modalopen;
-    animation-duration: var(--modal-duration);
+	margin: 10% auto;
+	width: 40%;
+	box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+	animation-name: modalopen;
+	animation-duration: var(--modal-duration);
 }
-  
+
 .modal-header h2 {
-    margin: 0;
+	margin: 0;
 }
-  
+
 .modal-header {
-    background: var(--modal-color);
-    padding: 15px;
-    color: #fff;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+	background: var(--modal-color);
+	padding: 15px;
+	color: #fff;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
 }
-  
+
 .modal-body {
-    padding: 10px 20px;
-    background: #fff;
-}  
-  
-.close {
-    color: #ccc;
-    float: right;
-    font-size: 30px;
-    color: #fff;
+	padding: 10px 20px;
+	background: #fff;
 }
-  
+
+.close {
+	color: #ccc;
+	float: right;
+	font-size: 30px;
+	color: #fff;
+}
+
 .close:hover,
 .close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
 }
-  
+
 @keyframes modalopen {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }
 
 form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    font-size: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+	font-size: 20px;
 }
 
 .field {
-    display: flex;
-    margin: 10px;
+	display: flex;
+	margin: 10px;
 }
 
 .submit {
-    background: #428bca;
-    padding: 1em 2em;
-    color: #fff;
-    border: 0;
-    border-radius: 12px;
-    cursor: pointer;
-    margin-top: 10px;
+	background: #428bca;
+	padding: 1em 2em;
+	color: #fff;
+	border: 0;
+	border-radius: 12px;
+	cursor: pointer;
+	margin-top: 10px;
 }
 
 .priorities {
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 15px;
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 15px;
 }
 
 #radio {
-    margin-top: 10px;
+	margin-top: 10px;
 }
 
 #radio-label {
-    margin-top: 2px;
+	margin-top: 2px;
 }
