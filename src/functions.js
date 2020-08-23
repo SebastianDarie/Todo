@@ -73,7 +73,7 @@ export function render() {
 	const task = document.querySelectorAll('.task-item')
 
 	project.forEach((prj) => {
-		prj.addEventListener('click', function (e) {
+		prj.addEventListener('click', function () {
 			project.forEach((prj) => prj.classList.remove('selected'))
 			prj.classList.toggle('selected')
 
