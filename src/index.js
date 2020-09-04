@@ -1,3 +1,4 @@
+import './style.css'
 import toggleEffects, { modal1, modal2 } from './effects'
 import {
 	addProject,
