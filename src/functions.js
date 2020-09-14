@@ -1,4 +1,17 @@
+import firebase from 'firebase/app'
+import 'firebase/firestore'
+// eslint-disable-next-line
+import regeneratorRuntime from 'regenerator-runtime'
+
 import { Project, Task } from './constructors'
+
+const app = firebase.initializeApp({
+	apiKey: 'AIzaSyAiVOrxLLFuxofWPmvqcvQIHUa_BbCt83Y',
+	authDomain: 'todo-list-467fb.firebaseapp.com',
+	projectId: 'todo-list-467fb',
+})
+
+const db = app.firestore()
 
 const projectsList = document.querySelector('.projects-list')
 const taskList = document.querySelector('.tasklist')
@@ -14,7 +27,9 @@ export function addProject(title) {
 
 	projectsArr.push(project)
 
-	render()
+	saveProject(title)
+
+	getProject(title)
 }
 
 export function addTask(title, description, date, priority) {
@@ -261,5 +276,46 @@ export function getLocalTasks() {
 	} else {
 		projectsArr = localProject
 		render()
+	}
+}
+
+async function saveProject(title) {
+	try {
+		await db.collection('projects').add({
+			title: title,
+		})
+	} catch (error) {
+		console.error(error)
+	}
+}
+
+export async function getProjects() {
+	try {
+		const snapshot = await db.collection('projects').limit(6).get()
+
+		snapshot.forEach((doc) => {
+			let project = doc.data()
+			projectsList.innerHTML += `<li class="project-item" data-key=${doc.id}>${project.title}</li>`
+		})
+	} catch (error) {
+		console.error(error)
+	}
+}
+
+async function getProject(title) {
+	try {
+		const query = await db
+			.collection('projects')
+			.where('title', '==', title)
+			.get()
+
+		if (!query.empty) {
+			const snapshot = query.docs[0]
+			const data = snapshot.data()
+
+			projectsList.innerHTML += `<li class="project-item" data-key=${snapshot.id}>${data.title}</li>`
+		}
+	} catch (error) {
+		console.error(error)
 	}
 }

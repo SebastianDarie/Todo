@@ -6,9 +6,12 @@ import {
 	getLocalTasks,
 	renderProject,
 	renderTask,
+	getProjects,
 } from './functions'
 
 getLocalTasks()
+
+getProjects()
 
 toggleEffects()
 
@@ -46,6 +49,8 @@ project.forEach((prj) => {
 		prj.classList.toggle('selected')
 
 		const idx = prj.dataset.key
+
+		console.log(idx)
 
 		renderProject(idx)
 	})
