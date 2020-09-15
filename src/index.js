@@ -3,15 +3,17 @@ import toggleEffects, { modal1, modal2 } from './effects'
 import {
 	addProject,
 	addTask,
-	getLocalTasks,
+	//getLocalTasks,
 	renderProject,
 	renderTask,
 	getProjects,
+	getTasks,
 } from './functions'
 
-getLocalTasks()
+//getLocalTasks()
 
 getProjects()
+getTasks()
 
 toggleEffects()
 
@@ -49,8 +51,6 @@ project.forEach((prj) => {
 		prj.classList.toggle('selected')
 
 		const idx = prj.dataset.key
-
-		console.log(idx)
 
 		renderProject(idx)
 	})

@@ -4,14 +4,14 @@ export const modal2 = document.querySelector('#my-modal2')
 const toggleEffects = () => {
 	const dropdown = document.querySelector('#dropdown')
 	const projects = document.querySelector('.projects-list')
-	const projectItem = document.querySelectorAll('.project-item')
-	const projectTitle = document.querySelector('.project-title')
+	//const projectItem = document.querySelectorAll('.project-item')
+	//const projectTitle = document.querySelector('.project-title')
 	const modalBtn = document.querySelector('#modal-btn')
 	const addListBtn = document.querySelector('#add-list')
 	const closeBtn = document.querySelectorAll('.close')
 
-	projectTitle.innerHTML = ''
-	projectTitle.innerHTML = `${projectItem[0].innerHTML}`
+	// projectTitle.innerHTML = ''
+	// projectTitle.innerHTML = `${projectItem[0].innerHTML}`
 
 	dropdown.classList.toggle('rotate')
 	addListBtn.classList.toggle('hidden')
