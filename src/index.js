@@ -1,16 +1,6 @@
 import './style.css'
 import toggleEffects, { modal1, modal2 } from './effects'
-import {
-	addProject,
-	addTask,
-	//getLocalTasks,
-	renderProject,
-	renderTask,
-	getProjects,
-	getTasks,
-} from './functions'
-
-//getLocalTasks()
+import { addProject, addTask, getProjects, getTasks } from './functions'
 
 getProjects()
 getTasks()
@@ -19,8 +9,6 @@ toggleEffects()
 
 const projectForm = document.querySelector('#project-form')
 const taskForm = document.querySelector('#task-form')
-const project = document.querySelectorAll('.project-item')
-const task = document.querySelectorAll('.task-item')
 
 projectForm.addEventListener('submit', function (e) {
 	e.preventDefault()
@@ -43,26 +31,4 @@ taskForm.addEventListener('submit', function (e) {
 
 	modal2.style.display = 'none'
 	taskForm.reset()
-})
-
-project.forEach((prj) => {
-	prj.addEventListener('click', function () {
-		project.forEach((prj) => prj.classList.remove('selected'))
-		prj.classList.toggle('selected')
-
-		const idx = prj.dataset.key
-
-		renderProject(idx)
-	})
-})
-
-task.forEach((todo) => {
-	todo.addEventListener('click', function () {
-		task.forEach((todo) => todo.classList.remove('selected'))
-		todo.classList.toggle('selected')
-
-		const idx = todo.dataset.key
-
-		renderTask(idx)
-	})
 })
